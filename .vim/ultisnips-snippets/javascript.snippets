@@ -1,0 +1,128 @@
+#**********************************************************************************************/
+# General
+#**********************************************************************************************/
+snippet console "console.log(...)" b
+console.log('${1:`!p snip.rv = re.sub(r';\s*$', '', snip.v.text)`}');$0
+endsnippet
+
+snippet cons "console.log('var', var)" b
+console.log('${1:`!p snip.rv = re.sub(r';\s*$', '', snip.v.text)`}:', $1);$0
+endsnippet
+
+snippet function "Function" b
+/**
+* ${1}
+*/
+var ${2} = function() {
+	$0
+}
+endsnippet
+
+
+snippet try "try() catch()" b
+try {
+    ${1}
+} catch(error) {
+    console.log('error:', error);
+}
+endsnippet
+
+snippet import "Import module" b
+import ${1} from '${2}';
+endsnippet
+
+snippet importp "Import package module" b
+import ${1} from '$1';
+endsnippet
+
+snippet importc "Import component module" b
+import ${1} from './$1';
+endsnippet
+
+#**********************************************************************************************/
+# JQuery
+#**********************************************************************************************/
+snippet jclick "On click event" b
+$('${1}').click(function(e){
+	${2}
+});$0
+endsnippet
+
+snippet jthis "this" b
+$(this)
+endsnippet
+
+snippet jselect "Selector" b
+$('${1}').$0
+endsnippet
+
+#****HTML***#
+snippet h1 "h1 tag" b
+<h1>${1}</h1>
+endsnippet
+
+snippet h2 "h2 tag" b
+<h2>${1}</h2>
+endsnippet
+#**********************************************************************************************/
+# React
+#**********************************************************************************************/
+# General
+snippet div "Create new React div" b
+<div className="${1}">
+  $0
+</div>
+endsnippet
+
+# Hooks
+snippet component "Create new hook component" b
+import React from 'react';
+
+export default function ${1}() {
+  $0
+
+  return ();
+}
+endsnippet
+
+snippet useState "Create new state variable" b
+const [${1}, set${1/\w+\s*/\u$0/}] = useState($0);
+endsnippet
+
+snippet form "Create form tag" b
+<form onSubmit={${1:handleSubmit}}>
+  $0
+</form>
+endsnippet
+
+snippet img "Create image tag" b
+<img alt={${1}} src={${2}} />
+$0
+endsnippet
+
+snippet tag "Create tag" b
+<${1} className="${2}">
+  $0
+</$1>
+endsnippet
+
+snippet useEffect "Create useEffect hook" b
+useEffect(() => {
+  ${1}
+}, [${2}]);
+endsnippet
+
+snippet table "Create table html/tags" b
+<table>
+   <thead>
+       <tr>
+           <th>${1}</th>
+       </tr>
+   </thead>
+   <tbody>
+       <tr>
+           <td>${2}</td>
+       </tr>
+   </tbody>
+</table>
+endsnippet

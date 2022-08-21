@@ -1,59 +1,50 @@
-# Cache #
-###################
-*.cache
+# ----------------------------------------------------------------------
+# | Linux                                                              |
+# ----------------------------------------------------------------------
+*~
 
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
-*.7z
-*.dmg
-*.gz
-*.iso
-*.jar
-*.tar
-*.wpress
+# ----------------------------------------------------------------------
+# | Miscellaneous                                                      |
+# ----------------------------------------------------------------------
+# Node.js & npm
+node_modules
+npm-debug.log
 
-# Logs #
-######################
-*.log
-
-# Backups #
-###########
-*.bak
-*.old
-
-# OS generated files #
-######################
+# ----------------------------------------------------------------------
+# | OS X                                                               |
+# ----------------------------------------------------------------------
+._*
+.AppleDouble
 .DS_Store
-.DS_Store?
+.localized
+.LSOverride
 .Spotlight-V100
 .Trashes
+Icon
+
+# ----------------------------------------------------------------------
+# | Vim                                                                |
+# ----------------------------------------------------------------------
+%*
+#*.sw[a-z]
+*.un~
+.netrwhist
+Session.vim
+.vim/swaps
+.vim/backups
+.vim/bundle
+.vim/syntax
+.vim/nerd-fonts
+.vim/.netrwhist
+
+# ----------------------------------------------------------------------
+# | Windows                                                            |
+# ----------------------------------------------------------------------
+Desktop.ini
 ehthumbs.db
 Thumbs.db
 
-# Other #
-#########
-*App_Data*
-*aspnet_client*
-*error_log
-*access_log
-*.sass-cache
-*.idea*
-*.buildpath
-.buildpath
-*.project
-.project
-*nbproject*
-*.settings*
-*.lnk
-*.user.ini
-*.url
-*~
-.picasa.ini
-*.sublime
-*.sublime*
-*.svn*
-.vscode/
-*.map
-/.admin
+# ----------------------------------------------------------------------
+# | Editors                                                            |
+# ----------------------------------------------------------------------
+/.idea

@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+SOURCE=${BASH_SOURCE[0]}
+
+while [ -L "$SOURCE" ]; do
+  DIR=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
+
+  SOURCE=$(readlink "$SOURCE")
+
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE
+done
+
+DIR=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
+
+function do_symlink() {
+  source="${1}"
+  target="${2}"
+
+  if [[ -L "${target}" ]]; then
+    unlink "${target}"
+  fi
+
+  if [[ -f "${target}" ]]; then
+    rm -rf "${target}"
+  fi
+
+  if [[ -d "${target}" ]]; then
+    rm -rf "${target}"
+  fi
+
+  ln -s "${source}" "${target}"
+}
+
+do_symlink "${DIR}/.vimrc" "${HOME}/.vinrc"
+do_symlink "${DIR}/.vim" "${HOME}/.vim"
+
+mkdir -p "${DIR}/.vim/backups"
+mkdir -p "${DIR}/.vim/swaps"
+mkdir -p "${DIR}/.vim/undos"
+
+curl -fLo "${DIR}/.vim/autoload/plug.vim" --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+rm -rf "${DIR}/.vim/nerd-fonts"
+
+git clone git@github.com:ryanoasis/nerd-fonts --depth 1 "${DIR}/.vim/nerd-fonts"
+
+"${DIR}/.vim/nerd-fonts/install.sh"
