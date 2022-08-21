@@ -34,6 +34,7 @@ Session.vim
 .vim/backups
 .vim/bundle
 .vim/syntax
+.vim/plugged
 .vim/nerd-fonts
 .vim/.netrwhist
 
